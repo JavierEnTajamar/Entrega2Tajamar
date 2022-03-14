@@ -1,0 +1,22 @@
+﻿@using LightHouseV1.Models
+@model AccountLoginViewModel
+
+    <div class="text-center">
+
+        <h2>User Login</h2>
+
+        <form asp-action="Login" asp-controller="Account" method="post">
+            <div asp-validation-summary="All"></div>
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+            <br />
+
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+            <br />
+
+            <button type="submit">Login</button>
+        </form>
+    </div>

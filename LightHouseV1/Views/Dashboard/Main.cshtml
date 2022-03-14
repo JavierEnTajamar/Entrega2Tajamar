@@ -1,0 +1,100 @@
+﻿@model LightHouseV1.Models.Castaway
+
+<h1>@Model.CastawayTwitchName Dashboard</h1>
+
+<h6> You have 0 Wolfcoins</h6>
+<h6> You have @ViewBag.TotalRewards rewards </h6>
+<h6> You have @ViewBag.DiferentRewards diferent rewards of 5 </h6>
+
+@if (@ViewBag.TotalRewards > 0)
+{
+<table class="table" name="example" id="example">
+    <thead>
+        <tr>
+            <th>
+                Type
+            </th>
+            <th>
+                Castaway
+            </th>
+            <th>
+                Claimed By
+            </th>
+            <th>
+                Claim Day
+            </th>
+            <th>
+                Reward Color
+            </th>
+            <th>
+                RewardSprayColor
+            </th>
+            <th>
+                Template
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Weight
+            </th>
+            <th>
+                Reward Composition
+            </th>
+            <th>
+                Reward Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Rewards)
+{
+        <tr>
+            <td>
+                @item.RewardType.RewardTypeName
+            </td>
+            <td>
+                @item.Castaway.CastawayTwitchName
+            </td>
+            <td>
+                @item.ClaimedBy.ClaimedByType
+            </td>
+            <td>
+                @item.ClaimDay
+            </td>
+            <td>
+                @item.RewardColor
+            </td>
+            <td>
+                @item.RewardSprayColor
+            </td>
+            <td>
+                @item.Template.TemplateName
+            </td>
+
+            <td>
+                @item.Size
+            </td>
+            <td>
+                @item.Weight
+            </td>
+            <td>
+                @item.RewardComposition.RewardComponents
+            </td>
+            <td>
+                @item.RewardStatus.RewardStatusType
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+}
+else {
+<p>There's no Rewards!'</p>
+}
+
+@if (@ViewBag.TotalRewards < 1)
+{
+<p>Si tienes rewards antes de haberte registrado y no aparecen habla con el gato para que te asigne tu perfil virtual</p>
+}
